@@ -1,0 +1,53 @@
+const year = [2017,2018,2019,2020]
+totalWasteGenerated = [7704,7759,7278,5880]
+totalWasteRecycled = [4724,4790,4293,3040]
+totalWasteDisposed = [2980,2969,2984,2841]
+STACKED BAR CHART
+https://www.chartjs.org/docs/latest/samples/bar/stacked.html
+______________________________________________________________________
+
+year: [2017,2018,2019,2020]
+total recycling rate: [61%,62%,59%,52%]
+total domestic recycling rate:[21,22,17,13]
+total non-domestic recycling rate:[76,75,73,68]
+LINE CHART
+________________________________________________________________________
+
+
+PIE CHART
+total disposed + recycling rate
+compare with other countries
+
+WasteStream = [Ferrous metal,Paper/Cardboard,Construction & Demolition,Plastics,Food,Horticultural,Wood,Ash & sludge,Textile/Leather,Used slag,Non-ferrous metal,Glass,Scrap tyres,Others];
+WasteGenerated = [1312,1136,1013,982,817,332,310,249,189,182,88,74,27,233]
+WasteDisposed = [6,699,2,924,663,55,76,227,182,1,1,65,1,214];
+WasteRecyclingRate = [99%,39%,99%,6%,19%,83%,76%,9%,4%,99%,98%,13%,95%,8%];
+
+Bubble chart
+
+Ferrous metal	1,312	1,306	99%	6
+Paper/Cardboard	1,136	437	39%	699
+Construction & Demolition	1,013	1,011	99%	2
+Plastics	982	58	6%	924
+Food	817	154	19%	663
+Horticultural	332	277	83%	55
+Wood	310	234	76%	76
+Ash & sludge	249	22	9%	227
+Textile/Leather	189	7	4%	182
+Used slag	182	181	99%	1
+Non-ferrous metal	88	87	98%	1
+Glass	74	9	13%	65
+Scrap tyres	27	26	95%	1
+Others (stones, ceramics, etc.)	233	18	8%	214
+
+-----------------------------------------------------------
+Choices of color:
+:root {
+    --blue: #61bedf;
+    --blue-light: #d0ecf6;
+    --red: #f87564;
+    --red-light: #fdd6d1;
+    --yellow: #f4cf27;
+    --yellow-light: #f9eebb;
+    --light-gray: #dcdcdc;
+}

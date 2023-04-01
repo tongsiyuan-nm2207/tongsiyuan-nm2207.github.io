@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Chart Page</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/appstyle.css">
+    <script defer type="text/javascript" src="appscripts/dfChart.js"></script>
+    <style>
+        #canvas-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #headline1 {
+            margin-right: 5rem;
+        }
+        #chart1 {
+            width: 50%;
+        }
+
+.canvas-container {
+    margin: calc(80 * var(--scale)) var(--paddingSide) 0;
+    pointer-events: auto;
+    cursor: auto;
+    position: relative;
+    border-radius: calc(16 * var(--scale));
+    overflow: hidden;
+    min-height: 50vh;
+    will-change: transform !important;
+    border-style: solid;
+}
+    </style>
+</head>
+<body>
+
+<div class="canvas-container">
+    <h1 id="headline1">Do you know our Semakau Landfill will be full in 36 years?</h1>
+    <canvas id="chart1" height="500"></canvas>
+</div>
+
+<div class="canvas-container">
+    <canvas id="chart2" width = '800' height="500"></canvas>
+</div>
+
+<div class="canvas-container">
+    <canvas id="chart3" width="800" height="500"></canvas>
+    <button type="button" id = 'button'>Compare with Fineland</button>
+
+</canvas>
+</div>
+
+<div class="canvas-container">
+    <canvas id="chart4" width="800" height="400"></canvas>
+    <button type="button" id = 'button2'>Sort Them!</button>
+</canvas>
+</div>
+
+
+</body>
+</html>

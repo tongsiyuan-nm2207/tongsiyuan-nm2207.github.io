@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Landing Page</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            font-weight: bold;
+            text-align: center;
+            background-color: #f1f1f1;
+        }
+        a {
+            color: #000;
+            text-decoration: none;
+            border-bottom: 2px solid #000;
+        }
+    </style>
+    <script>
+        const headline = "Today, let's talk about the waste crisis in Singapore.";
+        let index = 0;
+        const type = () => {
+            document.querySelector("a").textContent += headline[index];
+            index++;
+            if (index >= headline.length) {
+                clearInterval(intervalId);
+                setTimeout(() => {
+                    window.location.href = 'index.html';
+                }, 2000); // 2000 milliseconds = 2 seconds
+            }
+        }
+        const intervalId = setInterval(type, 100);
+    </script>
+</head>
+<body>
+    <a href="index.html"></a>
+</body>
+</html>
