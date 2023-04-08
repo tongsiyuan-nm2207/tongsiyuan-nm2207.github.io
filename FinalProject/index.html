@@ -7,6 +7,28 @@
     <link rel="stylesheet" type="text/css" href="css/appstyle.css">
     <script defer type="text/javascript" src="appscripts/dfChart.js"></script>
     <style>
+		.background {
+			background-image: url("./resources/semakau_landfill.jpg");
+            background-color:transparent;
+			background-size: cover;
+			background-position: center center;
+			background-attachment: fixed;
+			filter: grayscale(100%) brightness(70%);
+			height: 700px; /* Adjust height to match the height of your background image */
+			position: relative;
+		}
+
+		#section1 {
+			font-family:inter regular;
+            color:white;
+            font-size: 2rem;
+            line-height: 1.5;
+			position: absolute;
+			top: 15%;
+			left: 5%;
+            right: 5%;
+			z-index: 1;
+		}
         #canvas-container {
             display: flex;
             justify-content: space-between;
@@ -20,22 +42,27 @@
         }
 
 .canvas-container {
-    margin: calc(80 * var(--scale)) var(--paddingSide) 0;
+    background-color:#DCDBD2;
     pointer-events: auto;
     cursor: auto;
     position: relative;
-    border-radius: calc(16 * var(--scale));
     overflow: hidden;
     min-height: 50vh;
     will-change: transform !important;
-    border-style: solid;
 }
+#chart1 {background-color:transparent;
+    position:relative;
+    left:10%;
+    top:30%;}
     </style>
 </head>
 <body>
+    <div class="background">
+		<h1 id = 'section1'>Opened in 1999,Semakau Landfill is Singapore's first and only offshore landfill located about 8 kilometers south of the main island of Singapore. The landfill covers an area of about 350 hectares and was created by building a seawall around two small islands, Pulau Sakeng and Pulau Semakau, and filling the area with waste. The landfill is equipped with advanced systems to manage leachate and landfill gas to minimize its environmental impact. Despite being a landfill, Semakau Landfill is also home to a diverse range of wildlife and is an important site for birdwatching and conservation efforts in Singapore.</h1>
+	</div>
 
 <div class="canvas-container">
-    <h1 id="headline1">Do you know our Semakau Landfill will be full in 36 years?</h1>
+    <img src="./resources\2ndsection.svg" alt="Flowers in Chania">
     <canvas id="chart1" height="500"></canvas>
 </div>
 
@@ -56,6 +83,12 @@
 </canvas>
 </div>
 
+<div class="canvas-container">
+    <h1> Ready to make your marks?
+        Towards Zero Master Nation -></h1>
+    <button onclick = "window.location.href= 'https://www.towardszerowaste.gov.sg/#/'">Take Action</button>
+</canvas>
+</div>
 
 </body>
 </html>

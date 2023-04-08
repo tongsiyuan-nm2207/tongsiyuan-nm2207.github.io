@@ -38,14 +38,14 @@ var chart4 = new Chart(document.getElementById('chart1'), {
         label: 'Waste Recycled',
         data: cumulativeWasteRecycled,
         borderColor: '#535B72',
-        backgroundColor: 'rgba(0, 128, 0, 0.2)',
+        backgroundColor: 'rgba(83,91,114,0.9)',
         fill: true
       },
       {
         label: 'Waste Disposed',
         data: cumulativeWasteDisposed,
         borderColor: '#F6988C',
-        backgroundColor: 'rgba(255, 0, 0, 0.2)',
+        backgroundColor: 'rgba(246,152,140,0.6)',
         fill: true
       },
     ],
@@ -76,8 +76,11 @@ var chart4 = new Chart(document.getElementById('chart1'), {
       }
     },
     scales: {
+      xAxes: [{
+        stacked: true
+      }],
       yAxes: [
-        {
+        {stacked: true,
           ticks: {
             beginAtZero: true
           }
@@ -484,7 +487,7 @@ const data5 = {
       r: parseFloat(WasteDisposalRate[i]) * 0.3,
       label: waste,
     })),
-    backgroundColor: 'rgba(51, 102, 204, 0.7)',
+    backgroundColor: 'rgba(246,152,140,0.7)',
   }]
 };
 
