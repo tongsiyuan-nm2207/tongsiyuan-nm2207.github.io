@@ -3,10 +3,10 @@
     // Source of Deepfake data: Asst.Prof. Saifuddin Ahmed, NTU Singapore. A study of deepfake sharing behavior in Eight Countries. 
     // It is good to add the source of the data at the bottom of the chart. Explore to find out how you could do this.
 //DATA
-const year = [2017, 2018, 2019, 2020];
-const totalWasteGenerated = [7704, 7759, 7278, 5880];
-const totalWasteRecycled = [4724, 4790, 4293, 3040];
-const totalWasteDisposed = [2980, 2969, 2984, 2841];  
+const year = [2014,2015,2016,2017,2018,2019,2020];
+const totalWasteGenerated = [7514,7673,7814,7704, 7759, 7278, 5880];
+const totalWasteRecycled = [4474,4653,4764,4724, 4790, 4293, 3040];
+const totalWasteDisposed = [3040,3020,3050,2980,2969,2984,2841];  
 
 //CHART1 
 // Calculate cumulative values for waste generated, recycled and disposed
@@ -91,10 +91,15 @@ var chart4 = new Chart(document.getElementById('chart1'), {
 });
 
 
+//DATA
+const year1 = [2017, 2018, 2019, 2020];
+const totalWasteGenerated1 = [7704, 7759, 7278, 5880];
+const totalWasteRecycled1 = [4724, 4790, 4293, 3040];
+const totalWasteDisposed1 = [2980,2969,2984,2841]; 
 
 //CHART2
     const data1 = {
-      labels: year,
+      labels: year1,
       datasets: [
         {
           label: 'Total Recycling Rate',
@@ -106,16 +111,15 @@ var chart4 = new Chart(document.getElementById('chart1'), {
         },
         {
           label: 'Waste Recycled',
-          data: totalWasteRecycled,
+          data: totalWasteRecycled1,
           backgroundColor: '#535B72',
           borderColor: '#d0ecf6',
           borderWidth: 1,
         },
         {
           label: 'Waste Disposed',
-          data: totalWasteDisposed.map(value => -value),
+          data: totalWasteDisposed1.map(value => -value),
           backgroundColor: '#F6988C',
-          hoverBackgroundColor: 'rgba(255, 19, 132, 0.8)',
           borderColor: 'rgba(255, 99, 132, 1)',
           borderWidth: 1,
         },
@@ -165,9 +169,9 @@ var chart4 = new Chart(document.getElementById('chart1'), {
         callbacks: {
           label: function(tooltipItem, data) {
             const datasetLabel = data.datasets[tooltipItem.datasetIndex].label || '';
-            const wasteGenerated = totalWasteGenerated[tooltipItem.index];
-            const wasteRecycled = totalWasteRecycled[tooltipItem.index];
-            const wasteDisposed = totalWasteDisposed[tooltipItem.index];
+            const wasteGenerated = totalWasteGenerated1[tooltipItem.index];
+            const wasteRecycled = totalWasteRecycled1[tooltipItem.index];
+            const wasteDisposed = totalWasteDisposed1[tooltipItem.index];
             let label = '';
             
             if (datasetLabel === 'Waste Recycled') {
@@ -196,48 +200,50 @@ var chart4 = new Chart(document.getElementById('chart1'), {
 // Define the data
 const finlandData = [{
   label: 'Finland Non-Domestic Recycling Rate',
-  data: [50, 51, 52, 50],
-  borderColor: 'purple',
+  data: [50, 51, 52, 50,52],
+  borderColor: '#F6988C',
   fill: false,
   lineTension: 0,
   pointRadius: 0,
   pointHitRadius: 10,
   pointHoverRadius: 5,
-  pointBackgroundColor: 'purple',
+  pointBackgroundColor: '#F05340',
   pointBorderColor: '#fff',
   pointBorderWidth: 2,
   pointStyle: 'circle',
+  borderDash: [3, 3],
   className: 'series-path',
-  hidden: true // Initially hide the Finland data
+  hidden: false // Initially hide the Finland data
 },
 {label: 'Finland Domestic Recycling Rate',
-data: [44, 45, 46, 45],
-borderColor: 'pink',
+data: [44, 45, 46, 45,46],
+borderColor: '#535B72',
 fill: false,
+borderDash: [3, 3],
 lineTension: 0,
 pointRadius: 0,
 pointHitRadius: 10,
 pointHoverRadius: 5,
-pointBackgroundColor: 'purple',
+pointBackgroundColor: '#A9ADB9',
 pointBorderColor: '#fff',
 pointBorderWidth: 2,
 pointStyle: 'circle',
 className: 'series-path',
-hidden: true }]
+hidden: false }]
 
 const data2 = {
-  labels: ['2017', '2018', '2019', '2020'],
+  labels: ['2017', '2018', '2019', '2020','2021'],
   datasets: [
     {
       label: 'SG Domestic Recycling Rate',
-      data: [21, 22, 17, 13],
+      data: [21, 22, 17, 13,13],
       borderColor: '#535B72',
       fill: false,
       lineTension: 0,
       pointRadius: 0,
       pointHitRadius: 10,
       pointHoverRadius: 5,
-      pointBackgroundColor: 'green',
+      pointBackgroundColor: '#A9ADB9',
       pointBorderColor: '#fff',
       pointBorderWidth: 2,
       pointStyle: 'circle',
@@ -245,21 +251,19 @@ const data2 = {
     },
     {
       label: 'SG Non-Domestic Recycling Rate',
-      data: [76, 75, 73, 68],
+      data: [76, 75, 73, 68,70],
       borderColor: '#F6988C',
       fill: false,
       lineTension: 0,
       pointRadius: 0,
       pointHitRadius: 10,
       pointHoverRadius: 5,
-      pointBackgroundColor: 'red',
+      pointBackgroundColor: '#F05340',
       pointBorderColor: '#fff',
       pointBorderWidth: 2,
       pointStyle: 'circle',
       className: 'series-path'
     },
-    finlandData[0],
-    finlandData[1],
   ]
 };
 
@@ -321,16 +325,45 @@ const myChart = new Chart(canvas, {
   data: data2,
   options: options2
 });
+// Create an array to hold the different chart configurations
+const chartConfigs = [  
+  {
+    datasets: [
+      data2.datasets[0],
+      finlandData[1],
+    ],
+    },
+    {
+    datasets: [
+      data2.datasets[1],
+      finlandData[0],
+    ],
+    }, 
+  {datasets: [      data2.datasets[0],
+  data2.datasets[1],
+  finlandData[0],
+  finlandData[1],
+],
+},
+];
+
+paragraph = ['When compared to Finland, a country with similar educational and economic development, Singapore falls behind significantly in terms of domestic recycling efforts.' , "When it comes to non-domestic recycling rates,  Singapore is better than Finland. In fact, Singapore has been recognized globally for its effective material collection and recycling practices in the commercial and industrial sectors.","In conclusion, waste management requires the collective efforts of individuals, businesses, and governments. While Singapore is trying hard to improve its waste management practices, there is still room for improvement, especially in domestic recycling."]
+
+// Set the initial chart configuration
+let currentChartConfigIndex = 0;
+const myElement = document.getElementById("comparison");
 
 // Update the chart when the button is clicked
-const button = document.getElementById('button');
+const button = document.getElementById('next');
 button.addEventListener('click', () => {
-  // Toggle the visibility of the Finland data
-  finlandData[0].hidden = !finlandData[0].hidden;
-  finlandData[1].hidden = !finlandData[1].hidden;  
   // Update the chart with the new data
-  myChart.update();
+myChart.data.datasets = chartConfigs[currentChartConfigIndex].datasets;
+myChart.update();
+myElement.innerText = paragraph[currentChartConfigIndex];
+// Toggle to the next chart configuration
+currentChartConfigIndex = (currentChartConfigIndex + 1) % chartConfigs.length;
 });
+
 
 //CHART4
 const WasteStream = [
@@ -347,7 +380,6 @@ const WasteStream = [
   "Non-ferrous metal",
   "Glass",
   "Scrap tyres",
-  "Others"
 ];
 
 const WasteGenerated = [
@@ -364,7 +396,6 @@ const WasteGenerated = [
   88,
   74,
   27,
-  233
 ];
 
 const WasteDisposed = [
@@ -381,7 +412,6 @@ const WasteDisposed = [
   1,
   65,
   1,
-  214
 ];
 
 const WasteDisposalRate = [
@@ -398,7 +428,6 @@ const WasteDisposalRate = [
   "2%",
   "87%",
   "5%",
-  "92%"
 ];
 
 const data3 = {
@@ -408,10 +437,10 @@ const data3 = {
       data: WasteStream.map((waste, i) => ({
         x: WasteGenerated[i],
         y: WasteDisposed[i],
-        r: parseFloat(WasteDisposalRate[i]) * 0.3,
+        r: parseFloat(WasteDisposalRate[i]) * 0.38,
         label: WasteStream[i]
       })),
-      backgroundColor: 'rgba(51, 102, 204, 0.7)'
+      backgroundColor: 'rgba(83,91,114,0.9)'
     }
   ]
 };
@@ -475,19 +504,22 @@ sortButton.addEventListener('click', () => {
   // Sort the data by bubble size
   chart.data = data5,
   chart.options = options5,
-  chart.update()
+  chart.update(),
+  document.getElementById("bubble_text1").style.display = "none";
+  document.getElementById("bubble_text2").style.display = "block";
+  document.getElementById("bubble_img").style.display = "block";
 });
 
 //chart5
 const data5 = {
   datasets: [{
     data: WasteStream.map((waste, i) => ({
-      x:  parseFloat(WasteDisposalRate[i])*0.5 + 8,
-      y: 0,
-      r: parseFloat(WasteDisposalRate[i]) * 0.3,
+      x: parseFloat(WasteDisposalRate[i]),
+      y: 0.6,
+      r: parseFloat(WasteDisposalRate[i]) * 0.35,
       label: waste,
     })),
-    backgroundColor: 'rgba(246,152,140,0.7)',
+    backgroundColor: 'rgba(83,91,114,0.9)',
   }]
 };
 
@@ -515,14 +547,16 @@ const options5 = {
   },
   tooltips: {
     callbacks: {
-      label: function(tooltipItem, data5) {
-        const wasteStream = data5.datasets[0].data5[tooltipItem.index].label;
-        const disposalRate = data5.datasets[0].data5[tooltipItem.index].x;
-        return `${wasteStream}: ${disposalRate}%`;
+      label: function(tooltipItem, data) {
+        const wasteStream = data.datasets[tooltipItem.datasetIndex].data[tooltipItem.index].label;
+        const disposalRate = WasteDisposalRate[tooltipItem.index];
+        return `${wasteStream}:Disposal rate —— ${disposalRate}）`;
+      }
       }
     }
-  }
-};
+  };
+
+
 
 
 
